@@ -64,6 +64,12 @@ public class ProductoController {
           return repoCat.findAll(); 
     }
     
+    @PostMapping("/cat")
+    public ResponseEntity<Categoria> listCat( @RequestBody Categoria input) {
+          repoCat.save(input);
+          return new ResponseEntity<>(input,HttpStatus.OK);
+    }
+    
     @PutMapping("/{id}")
     public ResponseEntity<Producto> put(@PathVariable String id, @RequestBody Producto input) {
         return null;
